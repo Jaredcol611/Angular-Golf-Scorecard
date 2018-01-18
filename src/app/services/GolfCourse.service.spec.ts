@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { GolfApiService } from './golf-api.service';
+import { GolfApiService } from './GolfCourse.service';
 
 describe('GolfApiService', () => {
   beforeEach(() => {
