@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { GolfApiService } from './GolfCourse.service';
+import { GolfCourseService } from './GolfCourse.service';
 
 describe('GolfApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [GolfApiService]
+      providers: [GolfCourseService]
     });
   });
 
-  it('should be created', inject([GolfApiService], (service: GolfApiService) => {
+  it('should be created', inject([GolfCourseService], (service: GolfCourseService) => {
     expect(service).toBeTruthy();
   }));
 });

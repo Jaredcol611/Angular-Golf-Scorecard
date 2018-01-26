@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GolfCourseService} from './services/GolfCourse.service';
-import {GolfCourse} from './GolfCourse';
+import {GolfCourse} from './Interface/GolfCourse';
+import {CourseMetaData} from './Interface/Course';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,39 @@ import {GolfCourse} from './GolfCourse';
 export class AppComponent implements OnInit {
   title = 'Golf Scorecard';
   golfCourses: GolfCourse[];
+  selected: number;
 
   constructor(private golfCourseService: GolfCourseService) { }
 
   ngOnInit() {
-    this.golfCourseService.getGolfCourses(4, 5, 5).subscribe((golfCourses: GolfCourse[]) => {
-      this.golfCourses = golfCourses;
+    this.golfCourseService.getGolfCourses().subscribe((golfCourses: CourseMetaData) => {
+      this.golfCourses = golfCourses.courses;
       console.log(golfCourses);
     });
   }
+  SingleCourse() {
+    this.golfCourseService.getCourse(this.selected).subscribe((golfCourse: GolfCourse) => {
+      console.log(golfCourse);
+    });
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

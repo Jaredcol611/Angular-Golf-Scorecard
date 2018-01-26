@@ -5,12 +5,25 @@
   </h1>
 </div>
 
-<select>
-  <option *ngFor="let course of golfCourses">
-    {{course}}
-  </option>
+<!--<form>-->
+  <!--<select [(value)]="selected" (change)="SingleCourse()">-->
+    <!--<option *ngFor="let course of golfCourses" [value]="course.id">{{course.name}}</option>-->
+  <!--</select>-->
+<!--</form>-->
 
-</select>
+<mat-card>
+Hello
+</mat-card>
+
+<mat-form-field>
+  <mat-select [(value)]="selected" (change)="SingleCourse()">
+    <mat-option *ngFor="let course of golfCourses" [value]="course.id">{{course.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+
+
 
 
 

@@ -1,5 +1,5 @@
-
-
+import { Holes } from './Holes';
+import {TeeTypes} from './Tee_Types';
 
 export interface GolfCourse {
     id: string;
@@ -25,8 +25,8 @@ export interface GolfCourse {
     thumbnail: string;
     inserted: string;
     updated: string;
-    holes: any[];
-    tee_types: any[];
+    holes: Holes[];
+    tee_types: TeeTypes[];
     location: object;
     extras: any[];
     links: object;
