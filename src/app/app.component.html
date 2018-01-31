@@ -15,11 +15,28 @@
 Hello
 </mat-card>
 
-<mat-form-field>
-  <mat-select [(value)]="selected" (change)="SingleCourse()">
-    <mat-option *ngFor="let course of golfCourses" [value]="course.id">{{course.name}}</mat-option>
-  </mat-select>
-</mat-form-field>
+
+<div>
+  <mat-form-field>
+    <mat-select [(ngModel)]="selected" (change)="SingleCourse()">
+      <mat-option *ngFor="let course of golfCourse" [value]="course.id">{{course.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div>
+  <!--<mat-form-field *ngIf="course">-->
+    <!--<mat-select *ngFor="let teeType of golfCourse.courses.tee_types">-->
+      <!--<mat-option>{{teeType}}</mat-option>-->
+      <!--<mat-option>{{teeType}}</mat-option>-->
+      <!--<mat-option>{{teeType}}</mat-option>-->
+      <!--<mat-option>{{teeType}}</mat-option>-->
+    <!--</mat-select>-->
+  <!--</mat-form-field>-->
+</div>
+
+
+
 
 
 

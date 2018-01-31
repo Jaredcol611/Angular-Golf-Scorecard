@@ -12,7 +12,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -22,7 +23,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [GolfCourseService],
+  providers: [GolfCourseService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

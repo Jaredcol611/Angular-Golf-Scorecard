@@ -4,12 +4,18 @@ import { HttpClient } from '@angular/common/http';
 import {CourseMetaData} from '../Interface/Course';
 import {GolfCourse} from '../Interface/GolfCourse';
 
+import {map} from 'rxjs/operators';
+
+
+
 
 
 @Injectable()
 export class GolfCourseService {
 
   url = 'https://golf-courses-api.herokuapp.com';
+  golfCourse: GolfCourse;
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -22,7 +28,9 @@ export class GolfCourseService {
   }
   getCourse(courseId): Observable<GolfCourse> {
     console.log(courseId);
-    return this.httpClient.get<GolfCourse>(`${this.url}/courses/${courseId}`);
+    return this.httpClient.get<GolfCourse>(`${this.url}/courses/${courseId}`)
+      .pipe(map(currentCourse => this.golfCourse = currentCourse));
+
   }
 }
 

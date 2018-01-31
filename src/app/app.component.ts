@@ -10,20 +10,25 @@ import {CourseMetaData} from './Interface/Course';
 })
 export class AppComponent implements OnInit {
   title = 'Golf Scorecard';
-  golfCourses: GolfCourse[];
+  golfCourses: CourseMetaData;
   selected: number;
+  golfCourse: GolfCourse[];
+  currentCourse: GolfCourse;
 
   constructor(private golfCourseService: GolfCourseService) { }
 
+
   ngOnInit() {
     this.golfCourseService.getGolfCourses().subscribe((golfCourses: CourseMetaData) => {
-      this.golfCourses = golfCourses.courses;
-      console.log(golfCourses);
+      this.golfCourse = golfCourses.courses;
+       console.log(golfCourses.courses);
     });
   }
-  SingleCourse() {
+   SingleCourse() {
     this.golfCourseService.getCourse(this.selected).subscribe((golfCourse: GolfCourse) => {
+     this.currentCourse = golfCourse;
       console.log(golfCourse);
+
     });
   }
 }

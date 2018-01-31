@@ -25,8 +25,8 @@ export interface GolfCourse {
     thumbnail: string;
     inserted: string;
     updated: string;
-    holes: Holes[];
-    tee_types: TeeTypes[];
+    holes: Holes;
+    tee_types: TeeTypes;
     location: object;
     extras: any[];
     links: object;
