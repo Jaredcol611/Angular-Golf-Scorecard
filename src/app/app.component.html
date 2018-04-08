@@ -5,35 +5,47 @@
   </h1>
 </div>
 
-<!--<form>-->
-  <!--<select [(value)]="selected" (change)="SingleCourse()">-->
-    <!--<option *ngFor="let course of golfCourses" [value]="course.id">{{course.name}}</option>-->
-  <!--</select>-->
-<!--</form>-->
-
-<mat-card>
-Hello
-</mat-card>
 
 
 <div>
-  <mat-form-field>
-    <mat-select [(ngModel)]="selected" (change)="SingleCourse()">
-      <mat-option *ngFor="let course of golfCourse" [value]="course.id">{{course.name}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <form *ngIf="golfCourse">
+    <p>Select a course</p>
+    <select [(ngModel)]="selected" (change)="SingleCourse()" name="course">
+      <option>Courses...</option>
+      <option *ngFor="let course of golfCourse" [value]="course.id">{{course.name}}</option>
+    </select>
+  </form>
+  <br>
+  <div *ngIf="currentCourse">{{courseName}} has {{numHoles}} holes.</div>
+
 </div>
 
 <div>
-  <!--<mat-form-field *ngIf="course">-->
-    <!--<mat-select *ngFor="let teeType of golfCourse.courses.tee_types">-->
-      <!--<mat-option>{{teeType}}</mat-option>-->
-      <!--<mat-option>{{teeType}}</mat-option>-->
-      <!--<mat-option>{{teeType}}</mat-option>-->
-      <!--<mat-option>{{teeType}}</mat-option>-->
-    <!--</mat-select>-->
-  <!--</mat-form-field>-->
+  <form *ngIf="currentCourse">
+    <p>Select a tee type</p>
+    <select [(ngModel)]="teeTypeIndex" name="tee" (ngModelChange)="setTeeType()">
+      <option>tee types</option>
+      <option *ngFor="let teeType of currentCourse.tee_types; let i = index" [value]="i">{{teeType.tee_type}}</option>
+    </select>
+  </form>
+  <br>
+  <div *ngIf="nextSelect">The tee you selected has {{nextSelect.yards}} yards in total</div>
 </div>
+
+<div class="container" *ngIf="nextSelect">
+
+  <h3>Players:</h3>
+  <form>
+    <input type="text" placeholder="Player One" [(ngModel)]="playerOne" name="name"><br>
+    <input type="text" placeholder="Player Two" [(ngModel)]="playerTwo" name="name"><br>
+    <input type="text" placeholder="Player Three" [(ngModel)]="playerThree" name="name"><br>
+    <input type="text" placeholder="Player Four" [(ngModel)]="playerFour" name="name">
+  </form>
+
+  <button (click)="setPlayers()">Start Golfing</button>
+
+</div>
+
 
 
 

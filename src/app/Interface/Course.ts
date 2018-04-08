@@ -1,6 +1,6 @@
 
-import { GolfCourse} from './GolfCourse';
+import { GolfCourse } from './GolfCourse';
 
-export interface CourseMetaData {
+export interface CourseData {
   courses: GolfCourse[];
 }
